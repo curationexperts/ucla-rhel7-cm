@@ -1,4 +1,7 @@
-#ucla-central-cm
+# ucla-central-cm
+This repo uses submodules. Please clone it with a `git clone --recursive` command.
+
+If you clone without the recursive tag you can run `git submodule init` and `git submodule update`
 
 The purpose of this repo is to centralize the various UCLA RHEL7 repos under one repo for testing purposes. The repo will try to stay faithful to UCLA's process and any additions or changes will be for compatibility's sake. 
 
