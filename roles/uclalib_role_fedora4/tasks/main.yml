@@ -12,7 +12,7 @@
 - name: Set environment variables for this project and environment
   include_vars: "{{ project_name }}_{{ env_name }}.yml"
   when: project_vars_file.stat.exists
-#  no_log: True
+  no_log: True
 
 - name: Create Fedora data directory
   file:
@@ -87,6 +87,17 @@
     owner: "{{ fedora_tomcat_user }}"
     group: "{{ fedora_tomcat_user }}"
     mode: 0750
+
+- name: Replace tomcat server name with Fedora FQDN in vhosts.d
+  lineinfile:
+    path: /etc/httpd/vhosts.d/tomcatapps.httpd.conf
+    regexp: 'ServerName'
+    line: 'ServerName {{ fedora_server_fqdn }}'
+
+- name: Restart Apache
+  service:
+    name: httpd
+    state: restarted
 
 - name: Start and enable the Fedora tomcat service
   service:
