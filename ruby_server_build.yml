@@ -1,5 +1,17 @@
 ---
-- hosts: RubyServer
+- hosts: localhost
+  vars:
+   project_name: "californica"
+   env_name: "test"
+
+  roles:
+    -  { role: dce_role_provision_ec2, ec2_exact_count: 1 }
+    -  { role: dce_role_end_play }
+    -  { role: dce_role_provision_rds }
+    -  { role: dce_role_rds_mysql }
+
+- hosts: ec2-group
+  gather_facts: no
   become: yes
   user: ec2-user  
   vars:
@@ -7,6 +19,9 @@
     env_name: "test"
 
   roles:
+    - { role: dce_role_wait_for_gatherfacts }
+    - { role: dce_role_selinux_reboot }
+    - { role: dce_role_wait_for_gatherfacts }
     - { role: uclalib_role_rhel7repos }
     - { role: uclalib_role_epel }
     - { role: uclalib_role_samvera_basepackages }
@@ -23,4 +38,4 @@
     - { role: uclalib_role_nodejs, nodejs_version: '8' }
     - { role: uclalib_role_yarn }
     - { role: uclalib_role_redis }
-    - { role: uclalib_role_samvera_capdeploy }
+#    - { role: uclalib_role_samvera_capdeploy }

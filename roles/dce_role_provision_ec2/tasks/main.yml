@@ -27,6 +27,7 @@
       Name: "{{ ec2_fqdn }}"
     count_tag:
       Name: "{{ ec2_fqdn }}" 
+    user_data: "{{ lookup('template', 'user_data.j2') }}"
     exact_count: "{{ ec2_exact_count }}"
   register: ec2
 
