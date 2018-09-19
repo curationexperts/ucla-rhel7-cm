@@ -8,7 +8,7 @@
 
 - name: Set-up project-specific environment variables
   include_vars: "{{ item }}"
-  loop: "{{ project_env_path }}" 
+  loop: "{{ project_env_path }}"
   ignore_errors: yes
 #  when: project_vars_file.stat.exists
 #  no_log: True
