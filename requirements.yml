@@ -37,7 +37,7 @@
 - src: https://github.com/curationexperts/dce_role_provision_rds
 - src: https://github.com/curationexperts/dce_role_provision_ec2
 - src: https://github.com/curationexperts/dce_role_rds_mysql
-
+- src: https://github.com/emory-libraries/emorylib_role_local_mysqldb
 # Utility Roles
 #- src: https://github.com/curationexperts/dce_role_project_env
 #- src: https://github.com/curationexperts/dce_role_selinux_reboot
