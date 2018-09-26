@@ -10,5 +10,7 @@
   include_vars: "{{ item }}"
   loop: "{{ project_env_path }}"
   ignore_errors: yes
+  delegate_to: localhost
+#  delegate_facts: yes
 #  when: project_vars_file.stat.exists
 #  no_log: True
