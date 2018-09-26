@@ -88,6 +88,17 @@
     group: "{{ fedora_tomcat_user }}"
     mode: 0750
 
+- name: Replace tomcat server name with Fedora FQDN in vhosts.d
+  lineinfile:
+  path: /etc/httpd/vhosts.d/tomcatapps.httpd.conf
+  regexp: '^ServerName'
+  line: 'ServerName {{ fedora_server_fqdn }}'
+
+- name: Restart Apache
+  service:
+    name: httpd
+    state: restarted
+
 - name: Start and enable the Fedora tomcat service
   service:
     name: fedora

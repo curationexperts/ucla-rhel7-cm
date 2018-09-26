@@ -8,6 +8,11 @@
   include_role:
     name: dce_role_project_env
 
+- name: Set fact to delete RDS instance
+  set_fact:
+    rds_command: delete
+  tags: [ delete-rds, delete-all, never ]
+
 - name: Provision RDS
   rds:
     command: "{{ rds_command }}"
