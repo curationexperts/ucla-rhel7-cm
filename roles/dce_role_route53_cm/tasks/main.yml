@@ -8,7 +8,7 @@
     use_absolute_paths: yes
 
 - name: Load task to set values
-  include_task: set_facts.yml
+  include_tasks: set_facts.yml
 
 - meta: end_play
 

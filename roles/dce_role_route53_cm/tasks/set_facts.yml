@@ -1,12 +1,12 @@
 ---
 - name: Set facts after loading project vars
   set_fact:
-    route53_A_Record: "{{ ec2_fqdn | regex_replace((?<=^www\.|^)[^.]+) }}.{{ route53_top_level_domain }}"
+    route53_A_Record: "{{ ec2_fqdn | regex_replace('(?<=^www\.|^)[^.]+') }}.{{ route53_top_level_domain }}"
     route53_IP_address: "{{ ec2_ip }}"
 
 - name: Set CNAMEs if they exist
   set_fact:
-    route53_CNAME: "{{ ec2_CNAME | regex_replace((?<=^www\.|^)[^.]+) }}.{{ route53_top_level_domain }}"
+    route53_CNAME: "{{ ec2_CNAME | regex_replace('(?<=^www\.|^)[^.]+') }}.{{ route53_top_level_domain }}"
 
 
 - debug:
