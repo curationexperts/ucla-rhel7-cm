@@ -1,0 +1,34 @@
+---
+# tasks file for dce_role_route53_cm
+#- include_tasks: get_existing_records.yml
+- name: Load role for project envs 
+  include_role: 
+    name: dce_role_project_env
+  vars:
+    use_absolute_paths: yes
+
+- name: Load task to set values
+  include_task: set_facts.yml
+
+- meta: end_play
+
+
+- name: Create or destroy A record
+  route53:
+    state: "{{ route53_state }}"
+    zone: "{{ route53_top_level_domain }}"
+    record: "{{ route53_A_Record }}"
+    value: "{{ route53_IP_address }}"
+    type: A
+    overwrite: yes
+  register: route53_A_Record
+
+- name: Create or Destroy CNAME
+  route53:
+    state: "{{ route53_state }}"
+    zone: "{{ route53_top_level_domain }}"
+    record: "{{ route53_CNAME }}"
+    value: "{{ route53_A_Record }}"
+    type: CNAME
+    overwrite: yes
+  register: route53_CNAME

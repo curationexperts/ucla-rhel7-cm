@@ -1,0 +1,11 @@
+---
+- name: Get existing A and CNAME records
+  route53:
+    state: "{{ route53_state }}"
+    zone: "{{ route53_top_level_domain }}"
+    record: "{{ route53_fqdn }}"
+    type: "{{ route53_record_type }}"
+  register: route53_records
+
+- debug: 
+    var: route53_records
