@@ -1,26 +1,37 @@
 ---
+#- hosts: all
+#  vars:
+#    domain_name: util-ucla-test
+#    env_name: us-east-2
+#    tomcat_applications:
+#     - app_name: fedora
+#       shut_port: 8008
+#       conn_port: 8081
+#       rproxy_path: fcrepo
+
 - hosts: localhost
-  vars:
-   project_name: fedora-solr
-   env_name: test
+#  vars:
+#   project_name: fedora-solr
+#   env_name: test
 
   roles:
-    -  { role: dce_role_provision_ec2, ec2_exact_count: 1 }
-    -  { role: dce_role_provision_rds }
+    -  { role: dce_role_provision_ec2 }
+    -  { role: dce_role_route53_cm }
+#    -  { role: dce_role_provision_rds }
 #    -  { role: dce_role_end_play }
 
 - hosts: ec2_group
   gather_facts: no
   become: yes
   user: ec2-user
-  vars:
-    project_name: fedora-solr
-    env_name: test
-    tomcat_applications:
-      - app_name: fedora
-        shut_port: 8008
-        conn_port: 8081
-        rproxy_path: fcrepo
+#  vars:
+#    project_name: fedora-solr
+#    env_name: test
+#    tomcat_applications:
+#      - app_name: fedora
+#        shut_port: 8008
+#        conn_port: 8081
+#        rproxy_path: fcrepo
 
   roles:
     - { role: dce_role_wait_for_gatherfacts }
@@ -31,7 +42,8 @@
   #  - { role: uclalib_role_uclalibrepo }
     - { role: uclalib_role_samvera_basepackages }
     - { role: uclalib_role_pip }
-    - { role: dce_role_rds_mysql }
+    - { role: emorylib_role_local_mysqldb }
+#    - { role: dce_role_rds_mysql }
     - { role: uclalib_role_java, oracle_java_version: '1.8.0_181' } 
     - { role: uclalib_role_apache } 
     - { role: uclalib_role_tomcat } 
