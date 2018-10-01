@@ -23,8 +23,8 @@
 #- src: https://github.com/UCLALibrary/uclalib_role_solr7
 #- src: https://github.com/UCLALibrary/uclalib_role_yarn
 # Forked from DCE repo
-#- src: https://github.com/curationexperts/uclalib_role_fedora4.git
-#  version: use-fedora_server_fqdn
+- src: https://github.com/curationexperts/uclalib_role_fedora4.git
+  version: use-fedora_server_fqdn
 #- src: https://github.com/curationexperts/uclalib_role_tomcat
 #  version: add-KeepAlive-On
 #- src: https://github.com/curationexperts/uclalib_role_samvera_capdeploy
