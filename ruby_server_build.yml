@@ -5,7 +5,7 @@
     - { role: dce_role_provision_ec2  }
     - { role: dce_role_route53_cm } 
 #    -  { role: dce_role_provision_rds }
-    -  { role: dce_role_end_play }
+#    -  { role: dce_role_end_play }
 
 - hosts: ec2_group
   gather_facts: no
