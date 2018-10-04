@@ -16,4 +16,4 @@
   include_vars: "{{ item.stat.path }}"
   when: item.stat.exists
   loop: "{{ project_vars_file.results }}"
-  no_log: True
+#  no_log: True

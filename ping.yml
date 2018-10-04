@@ -1,0 +1,6 @@
+---
+- hosts: cd_ucla*
+  user: ec2-user
+
+  tasks:
+    - ping:

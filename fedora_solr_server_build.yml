@@ -20,7 +20,7 @@
 #    -  { role: dce_role_provision_rds }
 #    -  { role: dce_role_end_play }
 
-- hosts: ec2_group
+- hosts: util_ucla_test_testdce_com 
   gather_facts: no
   become: yes
   user: ec2-user
