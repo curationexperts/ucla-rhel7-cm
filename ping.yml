@@ -1,6 +1,8 @@
 ---
-- hosts: cd_ucla*
+- hosts: tag_Name_cd_ucla_test_curationexperts_com
   user: ec2-user
 
   tasks:
     - ping:
+    - debug:
+        var: ec2_tag_Name
