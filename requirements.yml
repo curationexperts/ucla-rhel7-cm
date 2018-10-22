@@ -23,8 +23,8 @@
 #- src: https://github.com/UCLALibrary/uclalib_role_solr7
 #- src: https://github.com/UCLALibrary/uclalib_role_yarn
 # Forked from DCE repo
-- src: https://github.com/curationexperts/uclalib_role_fedora4.git
-  version: use-fedora_server_fqdn
+#- src: https://github.com/curationexperts/uclalib_role_fedora4.git
+#  version: use-fedora_server_fqdn
 #- src: https://github.com/curationexperts/uclalib_role_tomcat
 #  version: add-KeepAlive-On
 #- src: https://github.com/curationexperts/uclalib_role_samvera_capdeploy
@@ -44,3 +44,4 @@
 #- src: https://github.com/curationexperts/dce_role_selinux_reboot
 #- src: https://github.com/curationexperts/dce_role_wait_for_gatherfacts
 #- src: https://github.com/curationexperts/dce_role_end_play
+- src: https://github.com/curationexperts/dce_role_assign_eip
