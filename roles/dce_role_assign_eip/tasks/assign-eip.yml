@@ -1,0 +1,5 @@
+---
+- name: Associate ec2 with elastic ip address
+  ec2_eip:
+    device_id: "{{ ec2_id }}"
+    ip: "{{ ec2_eip }}"

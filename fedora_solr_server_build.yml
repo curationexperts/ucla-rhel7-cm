@@ -16,12 +16,12 @@
 
   roles:
     -  { role: dce_role_provision_ec2 }
-    -  { role: dce_role_assign_eip }
-    -  { role: dce_role_route53_cm }
+#    -  { role: dce_role_assign_eip }
+#    -  { role: dce_role_route53_cm }
 #    -  { role: dce_role_provision_rds }
     -  { role: dce_role_end_play }
 
-- hosts: util_ucla_test_testdce_com 
+- hosts: ec2_group 
   gather_facts: no
   become: yes
   user: ec2-user

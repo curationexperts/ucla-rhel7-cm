@@ -1,8 +1,8 @@
 ---
-- name: Associate ec2 with elastic ip address
-  ec2_eip:
-    device_id: "{{ ec2_id }}"
-    ip: "{{ ec2_eip }}"
+#tasks file for dce_role_assign_eip
 
+- include_tasks: query-for-matching-eip.yml
+  when: not manual_eip
 
-# tasks file for dce_role_assign_eip
+- include_tasks: assign-eip.yml
+  when: manual_eip
