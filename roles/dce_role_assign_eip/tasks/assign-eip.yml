@@ -3,3 +3,7 @@
   ec2_eip:
     device_id: "{{ ec2_id }}"
     ip: "{{ ec2_eip }}"
+
+- name: Replace EC2 logically
+  set_fact:
+    ec2_ip: "{{ ec2_eip }}"

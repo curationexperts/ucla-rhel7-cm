@@ -15,3 +15,6 @@
 
 - include_tasks: assign-eip.yml
   when: eip_found
+
+- include_tasks: refresh-inventory-add-host.yml
+  when: eip_found
