@@ -49,4 +49,4 @@
     - { role: uclalib_role_apache } 
     - { role: uclalib_role_tomcat } 
     - { role: uclalib_role_fedora4, fedora_version: '4.7.5' }
-    - { role: uclalib_role_solr7, solr_fqdn: "cd-solr-ucla-test.testdce.com" }
+    - { role: uclalib_role_solr7, solr_fqdn: "cd-fedora-ucla.curationexperts.com" }
