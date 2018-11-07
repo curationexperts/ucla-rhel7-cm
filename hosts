@@ -1,5 +1,18 @@
-[RubyServer]
-cd-ucla-test.curationexperts.com
+[hyrax]
+cd-ucla.curationexperts.com
+test-ucla.curationexperts.com
 
-[FedoraSolr]
-fedora-test.testdce.com
+[fedora]
+test-fedora-ucla.curationexperts.com
+cd-fedora-ucla.curationexperts.com
+
+[spotlight]
+cd-ursus.curationexperts.com
+
+[dev]
+test-fedora-ucla.curationexperts.com
+test-ucla.curationexperts.com
+
+[prod]
+cd-ucla.curationexperts.com
+cd-ursus.curationexperts.com

@@ -1,20 +1,34 @@
 ---
-- hosts: RubyServer
-  become: yes
-  user: ec2-user  
-  vars:
-    project_name: "californica"
-    env_name: "test"
+- hosts: localhost
 
   roles:
+    - { role: dce_role_provision_ec2  }
+    - { role: dce_role_assign_eip }
+    - { role: dce_role_route53_cm } 
+#    -  { role: dce_role_provision_rds }
+#    -  { role: dce_role_end_play }
+
+- hosts: ec2_group
+  gather_facts: no
+  become: yes
+  user: ec2-user  
+
+  roles:
+    - { role: dce_role_wait_for_gatherfacts }
+    - { role: dce_role_selinux_reboot }
+    - { role: dce_role_wait_for_gatherfacts }
     - { role: uclalib_role_rhel7repos }
+    - { role: uclalib_role_uclalibrepo }
     - { role: uclalib_role_epel }
     - { role: uclalib_role_samvera_basepackages }
-    - { role: uclalib_role_java, oracle_java_version: '1.8.0_181' }
+    - { role: uclalib_role_java, oracle_java_version: '1.8.0_191' }
     - { role: uclalib_role_clamav }
     - { role: uclalib_role_pip }
+#    - { role: dce_role_rds_mysql }
+    - { role: emorylib_role_local_mysqldb }
+#    - { role: dce_role_end_play }
     - { role: uclalib_role_imagemagick }
-    - { role: uclalib_role_libreoffice, libreoffice_version: '6.1.0'}
+    - { role: uclalib_role_libreoffice, libreoffice_version: '6.1.2'}
     - { role: uclalib_role_ffmpeg } #, ffmpeg_version: '4.0.1' }
     - { role: uclalib_role_fits, fits_version: '1.3.0' }
     - { role: uclalib_role_ruby, ruby_version: '2.5.1' }

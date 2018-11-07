@@ -1,0 +1,22 @@
+
+host: test-fedora-ucla.curationexperts.com
+
+
+ansible_become_pass: "{{ lookup('env', 'ANSIBLE_BECOME_PASS') }}"
+
+
+domain_name: xxcd-ursus 
+project_name: xxursus
+
+#domain_name: cd-fedora-ucla 
+#project_name: fedora-solr
+
+
+env_name: xxus-east-2
+
+
+tomcat_applications:
+  - app_name: fedora
+    shut_port: 8008
+    conn_port: 8081
+    rproxy_path: fcrepo
