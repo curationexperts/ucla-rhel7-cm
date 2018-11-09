@@ -5,7 +5,7 @@
 #- src: https://github.com/UCLALibrary/uclalib_role_rhel7repos
 #- src: https://github.com/UCLALibrary/uclalib_role_java
 #- src: https://github.com/UCLALibrary/uclalib_role_tomcat
-#- src: https://github.com/UCLALibrary/uclalib_role_fedora 
+- src: https://github.com/UCLALibrary/uclalib_role_fedora4
 ##############################################################################
 #- src: https://github.com/UCLALibrary/uclalib_role_epel
 #- src: https://github.com/UCLALibrary/uclalib_role_uclalibrepo
@@ -44,4 +44,4 @@
 #- src: https://github.com/curationexperts/dce_role_selinux_reboot
 #- src: https://github.com/curationexperts/dce_role_wait_for_gatherfacts
 #- src: https://github.com/curationexperts/dce_role_end_play
-- src: https://github.com/curationexperts/dce_role_assign_eip
+#- src: https://github.com/curationexperts/dce_role_assign_eip

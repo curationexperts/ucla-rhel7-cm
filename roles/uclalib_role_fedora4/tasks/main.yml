@@ -88,19 +88,22 @@
     group: "{{ fedora_tomcat_user }}"
     mode: 0750
 
-- name: Replace tomcat server name with Fedora FQDN in vhosts.d
-  lineinfile:
-    path: /etc/httpd/vhosts.d/tomcatapps.httpd.conf
-    regexp: 'ServerName'
-    line: 'ServerName {{ fedora_server_fqdn }}'
-
-- name: Restart Apache
-  service:
-    name: httpd
-    state: restarted
-
 - name: Start and enable the Fedora tomcat service
   service:
     name: fedora
     state: started
     enabled: yes
+
+- name: Set-up MySQL yum repository
+  include_tasks: setup_mysql_yumrepo.yml
+
+- name: Install MySQL packages
+  include_tasks: install_mysql_packages.yml
+
+- name: Put in place fedora specific my.cnf file
+  template:
+    src: fedora_my_cnf.j2
+    dest: /root/.my.fedora.cnf
+    owner: root
+    group: root
+    mode: 0600
