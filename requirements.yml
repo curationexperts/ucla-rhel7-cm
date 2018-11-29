@@ -5,7 +5,7 @@
 #- src: https://github.com/UCLALibrary/uclalib_role_rhel7repos
 #- src: https://github.com/UCLALibrary/uclalib_role_java
 #- src: https://github.com/UCLALibrary/uclalib_role_tomcat
-- src: https://github.com/UCLALibrary/uclalib_role_fedora4
+#- src: https://github.com/UCLALibrary/uclalib_role_fedora4
 ##############################################################################
 #- src: https://github.com/UCLALibrary/uclalib_role_epel
 #- src: https://github.com/UCLALibrary/uclalib_role_uclalibrepo
@@ -22,6 +22,7 @@
 #- src: https://github.com/UCLALibrary/uclalib_role_redis
 #- src: https://github.com/UCLALibrary/uclalib_role_solr7
 #- src: https://github.com/UCLALibrary/uclalib_role_yarn
+- src: https://github.com/UCLALibrary/uclalib_role_cantaloupe
 # Forked from DCE repo
 #- src: https://github.com/curationexperts/uclalib_role_fedora4.git
 #  version: use-fedora_server_fqdn

@@ -16,3 +16,6 @@ test-ucla.curationexperts.com
 [prod]
 cd-ucla.curationexperts.com
 cd-ursus.curationexperts.com
+
+[cantaloupe]
+cantaloupe-dev-rhel.curationexperts.com
