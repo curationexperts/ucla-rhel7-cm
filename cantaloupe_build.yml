@@ -16,8 +16,8 @@
   user: ec2-user
   vars:
     host: "{{ hostvars['localhost']['host'] }}"
-  var_files:
-    - "{{ playbook_dir }}/host_vars/{{ host }}"
+#  var_files:
+#    - "{{ playbook_dir }}/host_vars/{{ host }}"
 
   roles:
     - { role: dce_role_wait_for_gatherfacts }
