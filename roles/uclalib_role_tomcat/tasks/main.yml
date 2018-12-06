@@ -11,7 +11,7 @@
 
 - name: Download Tomcat into /usr/local directory
   get_url:
-    url: "http://archive.apache.org/dist/tomcat/tomcat-{{ tomcat_major_version }}/v{{ tomcat_version }}/bin/apache-tomcat-{{ tomcat_version }}.tar.gz"
+    url: "{{ tomcat_download_url }}"
     dest: "/usr/local/apache-tomcat-{{ tomcat_version }}.tar.gz"
   when: tomcat_path.stat.exists == False
 
@@ -133,6 +133,10 @@
     path: "/var/log/httpd/tomcatapps"
     mode: 0755
     state: "directory"
+
+- name: Set-up SSL Certs and Keys
+  include_tasks: ssl_cert_setup.yml
+  when: tomcat_enable_ssl == "yes"
 
 - name: Put in place the Apache HTTPD reverse proxy vhost configs for each tomcat app
   template:

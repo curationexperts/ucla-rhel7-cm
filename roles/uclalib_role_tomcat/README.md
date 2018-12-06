@@ -44,12 +44,15 @@ For each CATALINA_BASE tomcat app:
 
   * `tomcat_version` - defines the full version of tomcat to use (e.g. 7.0.67)
 
+  * `tomcat_download_url` - defines the URL to download Tomcat binaries
+
   * `tomcat_applications` - variable that instantiates the tomcat application list
     * `app_name` - name of tomcat web app (usually matches name of .war file)
     * `shut_port`- port number to use for tomcat shutdown port in server.xml
     * `conn_port` - port number to use for tomcat connection port in server.xml
     * `rproxy_path` - path to configure the apache reverse proxy to use to access the tomcat app
-
+    * `proxypass_extra_params` - (optional) defines a list of extra parameters to append to the ProxyPass line in the tomcat vhost file
+        * examples include: `nocanon` or `keepalive=on` - separate multiple parameters with a single space all enclosed in quotes (e.g. `"nocanon keepalive=on"`)
 
   * `tomcat_server_name` - defines the FQDN for the server the tomcat apps will run on. This is used when creating the HTTPD vhost configuration
 
@@ -65,10 +68,18 @@ For each CATALINA_BASE tomcat app:
 
   * `lvm_base_path` - defines the path where the logical volumes are managed by the operating system
 
-  * `apache_vhost_ssl` - if the apache vhost uses SSL, use this to instantiate the certificate files list
-    * `cert_file_path` - defines the path to the SSL certificate
-    * `cert_key_file_path` - defines the path to the SSL certificates private key
-    * `cert_chain_file_path` - defines the path to the intermediate certificate chain file
+Variables with default values that define if this deployment should use SSL
+For a local dev deployment, default values enable SSL and install self-signed certificates
+For a production install, defaults values are overriden by variables defined in host_vars
+  * `tomcat_enable_ssl` - defines if this deloyment should use SSL (`yes` or `no` - default is `yes`)
+  * `ssl_cert_base_path` - defines the base path to the SSL certs and key
+  * `ssl_cert_file_path` - defines the path to the SSL certs
+  * `ssl_key_file_path` - defines the path to the SSL private key
+  * `ssl_files`
+      * `self_signed` - defines if the certificates are self-signed (`yes` or `no` - default is `yes`)
+      * `crt` - contains the contents of the SSL public certificate
+      * `interm` - contains the contents of the SSL intermediate chain certificate (only needed if using a trusted cert)
+      * `key` - contains the contents of the SSL private key
 
 
   Sample format for defining tomcat web apps:
@@ -82,6 +93,7 @@ For each CATALINA_BASE tomcat app:
       shut_port: 8007
       conn_port: 8082
       rproxy_path: path2
+      proxypass_extra_params: "nocanon"
   ```
 
   Example playbook file:
@@ -100,6 +112,7 @@ For each CATALINA_BASE tomcat app:
           shut_port: 8007
           conn_port: 8082
           rproxy_path: path2
+          proxypass_extra_params: "nocanon"
       use_lvm: "yes"
 
     roles:
