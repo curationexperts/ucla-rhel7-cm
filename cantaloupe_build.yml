@@ -1,7 +1,7 @@
 ---
 - hosts: localhost
   vars:
-    host: cantaloupe-dev.curationexperts.com 
+    host: cantaloupe-dev-rhel.curationexperts.com 
 
   roles:
     -  { role: dce_role_provision_ec2 }
@@ -10,12 +10,12 @@
 #    -  { role: dce_role_provision_rds }
     -  { role: dce_role_end_play, when: ec2_exact_count == 0 }
 
-- hosts: "{{ host }}"
+- hosts: cantaloupe-dev-rhel.curationexperts.com 
   gather_facts: no
   become: yes
   user: ec2-user
-  vars:
-    host: "{{ hostvars['localhost']['host'] }}"
+#  vars:
+#   host: "{{ hostvars['localhost']['host'] }}"
 #  var_files:
 #    - "{{ playbook_dir }}/host_vars/{{ host }}"
 

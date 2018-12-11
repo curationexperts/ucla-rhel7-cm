@@ -19,6 +19,7 @@ cd-ursus.curationexperts.com
 
 [cantaloupe]
 cantaloupe-dev-rhel.curationexperts.com
+cantaloupe-dev.curationexperts.com
 
 [ssl:children]
 cantaloupe
