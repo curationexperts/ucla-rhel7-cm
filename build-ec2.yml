@@ -1,6 +1,6 @@
 - hosts: localhost
   vars:
-    host: cantaloupe-dev-rhel.curationexperts.com 
+    host: cantaloupe-dev-ubuntu.curationexperts.com 
 
   roles:
     -  { role: dce_role_provision_ec2 }
