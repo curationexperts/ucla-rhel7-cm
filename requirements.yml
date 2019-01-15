@@ -26,8 +26,10 @@
 # Forked from DCE repo
 #- src: https://github.com/curationexperts/uclalib_role_fedora4.git
 #  version: use-fedora_server_fqdn
-#- src: https://github.com/curationexperts/uclalib_role_tomcat
-#  version: add-KeepAlive-On
+- src: https://github.com/curationexperts/uclalib_role_tomcat
+  version: add-ubuntu-functionality
+- src: https://github.com/curationexperts/uclalib_role_cantaloupe
+  version: add-Ubuntu-functionality
 #- src: https://github.com/curationexperts/uclalib_role_samvera_capdeploy
 #  version: add-geonames-honeybadger
 #- src: https://github.com/curationexperts/uclalib_role_java

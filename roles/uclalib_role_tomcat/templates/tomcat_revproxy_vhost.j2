@@ -2,8 +2,8 @@
 <VirtualHost *:80>
   ServerName {{ tomcat_server_name }}
 
-  ErrorLog /var/log/httpd/tomcatapps/error_log
-  CustomLog /var/log/httpd/tomcatapps/access_log combined
+  ErrorLog {{ apache_log_path }}/tomcatapps/error_log
+  CustomLog {{ apache_log_path }}/tomcatapps/access_log combined
 
   # don't loose time with IP address lookups
   HostnameLookups Off
@@ -20,8 +20,8 @@
 {% endif %}
   ServerName {{ tomcat_server_name }}
 
-  ErrorLog /var/log/httpd/tomcatapps/error_log
-  CustomLog /var/log/httpd/tomcatapps/access_log combined
+  ErrorLog {{ apache_log_path }}/tomcatapps/error_log
+  CustomLog {{ apache_log_path }}/tomcatapps/access_log combined
 
   # don't loose time with IP address lookups
   HostnameLookups Off
@@ -64,7 +64,7 @@
 {% endif %}
   SSLCertificateKeyFile   {{ ssl_key_file_path }}/{{ tomcat_server_name }}.key
 
-  CustomLog /var/log/httpd/tomcatapps/ssl_request_log   ssl_combined
+  CustomLog {{ apache_log_path }}/tomcatapps/ssl_request_log   ssl_combined
 {% endif %}
 
 </VirtualHost>

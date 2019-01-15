@@ -116,3 +116,12 @@ ssl_files:
     -----END RSA PRIVATE KEY-----
 
 ############################################################
+# New vars added for compatibilty with add-ubuntu-functionality branch
+environment_var_path: "/etc/sysconfig"
+apache_log_path: "/var/log/httpd"
+apache_vhosts_path: "/etc/httpd/vhosts.d"
+apache_conf_path: "/etc/httpd/conf.d"
+tomcat_install_path: "/usr/local"
+tomcatapp_install_path: "/usr/local"
+java_home: "/usr/lib/jvm/java"
+basename_path: "/bin"
